@@ -1,0 +1,85 @@
+version: '2'
+
+services:
+  centos7-1:
+    image: jfrog.zippyops.com:8082/sharedvm-img/centos7:v1.0
+    restart: always
+    container_name: centos7-1
+    hostname: centos7-1.com
+    privileged: true
+    command: /usr/sbin/init
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.2    
+    ports:
+      - "2223:22"
+      # - "3000:3000"
+      # - "3001:3001"
+      # - "3002:3002"
+      # - "3003:3003"
+    tty: true
+
+# services:
+  centos7-2:
+    image: jfrog.zippyops.com:8082/sharedvm-img/centos7:v1.0
+    restart: always
+    container_name: centos7-2
+    hostname: centos7-2.com
+    privileged: true
+    command: /usr/sbin/init
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.3    
+    ports:
+      - "2224:22"
+      # - "3004:3004"
+      # - "3005:3005"
+      # - "3006:3006"
+      # - "3007:3007"
+    tty: true
+
+# services:
+  centos7-3:
+    image: jfrog.zippyops.com:8082/sharedvm-img/centos7:v1.0
+    restart: always
+    container_name: centos7-3
+    hostname: centos7-3.com
+    privileged: true
+    command: /usr/sbin/init
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.4    
+    ports:
+      - "2225:22"
+      # - "3008:3008"
+      # - "3009:3009"
+      # - "3010:3010"
+      # - "3011:3011"
+    tty: true
+
+# services:
+  centos7-4:
+    image: jfrog.zippyops.com:8082/sharedvm-img/centos7:v1.0
+    restart: always
+    container_name: centos7-4
+    hostname: centos7-4.com
+    privileged: true
+    command: /usr/sbin/init
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.5    
+    ports:
+      - "2226:22"
+      # - "3012:3012"
+      # - "3013:3013"
+      # - "3014:3014"
+      # - "3015:3015"
+    tty: true
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.0.0/16
+         gateway: 192.168.0.1 

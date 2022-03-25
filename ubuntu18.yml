@@ -1,0 +1,82 @@
+version: '2'
+
+services:
+  ubuntu18-1:
+    image: jfrog.zippyops.com:443/sharedvm-img/ubuntu18:v1.0
+    restart: always
+    container_name: ubuntu18-1
+    hostname: ubuntu18-1.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.2    
+    ports:
+      - "2231:22"
+      # - "3000:3000"
+      # - "3001:3001"
+      # - "3002:3002"
+      # - "3003:3003"
+    tty: true
+
+  ubuntu18-2:
+    image: jfrog.zippyops.com:443/sharedvm-img/ubuntu18:v1.0
+    restart: always
+    container_name: ubuntu18-2
+    hostname: ubuntu18-2.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.3    
+    ports:
+      - "2232:22"
+      # - "3004:3004"
+      # - "3005:3005"
+      # - "3006:3006"
+      # - "3007:3007"
+    tty: true
+
+  ubuntu18-3:
+    image: jfrog.zippyops.com:443/sharedvm-img/ubuntu18:v1.0
+    restart: always
+    container_name: ubuntu18-3
+    hostname: ubuntu18-3.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.4    
+    ports:
+      - "2233:22"
+      # - "3008:3008"
+      # - "3009:3009"
+      # - "3010:3010"
+      # - "3011:3011"
+    tty: true
+
+  ubuntu18-4:
+    image: jfrog.zippyops.com:443/sharedvm-img/ubuntu18:v1.0
+    restart: always
+    container_name: ubuntu18-4
+    hostname: ubuntu18-4.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.5    
+    ports:
+      - "2234:22"
+      # - "3012:3012"
+      # - "3013:3013"
+      # - "3014:3014"
+      # - "3015:3015"
+    tty: true  
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.0.0/16
+         gateway: 192.168.0.1 

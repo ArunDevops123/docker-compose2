@@ -1,0 +1,82 @@
+version: '2'
+
+services:
+  ubuntu20-1:
+    image: nakkumar/work:u20f-v1.3
+    restart: always
+    container_name: ubuntu20-1
+    hostname: ubuntu20-1.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.2    
+    ports:
+      - "2235:22"
+      # - "3000:3000"
+      # - "3001:3001"
+      # - "3002:3002"
+      # - "3003:3003"
+    tty: true
+
+  ubuntu20-2:
+    image: nakkumar/work:u20f-v1.3
+    restart: always
+    container_name: ubuntu20-2
+    hostname: ubuntu20-2.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.3    
+    ports:
+      - "2236:22"
+      # - "3004:3004"
+      # - "3005:3005"
+      # - "3006:3006"
+      # - "3007:3007"
+    tty: true
+
+  ubuntu20-3:
+    image: nakkumar/work:u20f-v1.3
+    restart: always
+    container_name: ubuntu20-3
+    hostname: ubuntu20-3.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.4    
+    ports:
+      - "2237:22"
+      # - "3008:3008"
+      # - "3009:3009"
+      # - "3010:3010"
+      # - "3011:3011"
+    tty: true
+
+  ubuntu20-4:
+    image: nakkumar/work:u20f-v1.3
+    restart: always
+    container_name: ubuntu20-4
+    hostname: ubuntu20-4.com
+    privileged: true
+    entrypoint: sh /opt/ssh.sh
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.5    
+    ports:
+      - "2238:22"
+      # - "3012:3012"
+      # - "3013:3013"
+      # - "3014:3014"
+      # - "3015:3015"
+    tty: true 
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.0.0/16
+         gateway: 192.168.0.1   
